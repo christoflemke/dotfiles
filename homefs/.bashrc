@@ -107,4 +107,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source ~/.local/bin/bashmarks.sh
+if [ -f ~/.local/lib/bashmarks.sh ]; then
+    source ~/.local/lib/bashmarks.sh
+fi
+
+#if [ -f ~/.secrets ]; then
+#    source .secrets
+#fi
+
+PATH=~/.local/bin:$PATH
