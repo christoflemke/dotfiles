@@ -13,7 +13,11 @@ sync-folder() {
     for dotfile in ${source_dir}/.*; do
         target="${target_dir}/$(basename $dotfile)"
         [ -L "$target" ] && rm "$target"
-        [ -f "$dotfile" ] && ln -s "$dotfile" "$target"
+        if [ -f "$dotfile" ]; then
+	    ln -s "$dotfile" "$target"
+	else
+	    echo "Skipping ${target}" &>2
+	fi
     done    
 }
 
