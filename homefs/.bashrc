@@ -111,8 +111,9 @@ if [ -f ~/.local/lib/bashmarks.sh ]; then
     source ~/.local/lib/bashmarks.sh
 fi
 
-if [ -f ~/.secrets ]; then
-    source .secrets
+if [ -f ~/.localrc ]; then
+    source .localrc
 fi
 
 PATH=~/.local/bin:$PATH
+export EDITOR=emacs-nox
