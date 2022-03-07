@@ -112,7 +112,7 @@ if [ -f ~/.local/lib/bashmarks.sh ]; then
 fi
 
 if [ -f ~/.localrc ]; then
-    source .localrc
+    source ~/.localrc
 fi
 
 PATH=~/.local/bin:$PATH
