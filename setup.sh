@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR=$(cd $(dirname "$0")/.. && pwd)
+DOTFILES_DIR=$(cd $(dirname "$0") && pwd)
 
 echo "apt-install"
 $DOTFILES_DIR/script/apt-install.sh
