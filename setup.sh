@@ -4,7 +4,10 @@ DOTFILES_DIR=$(cd $(dirname "$0") && pwd)
 
 echo "apt-install"
 $DOTFILES_DIR/script/apt-install.sh
-FORCE=${CODESPACES:-false}
+FORCE=${FORCE:-false}
+if [ -n "$CODESPACES" ]; then
+  FORCE=true
+fi
 debug() {
   [ -n "$DEBUG" ] && echo $1 >&2
 }
