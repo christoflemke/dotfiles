@@ -1,10 +1,12 @@
 #!/bin/bash
 
+set -e
+
 DOTFILES_DIR=$(cd $(dirname "$0") && pwd)
 
 echo "apt-install"
 $DOTFILES_DIR/script/apt-install.sh
-
+FORCE=${CODESPACES:-false}
 debug() {
   [ -n "$DEBUG" ] && echo $1 >&2
 }
@@ -15,11 +17,11 @@ sync-folder() {
   mkdir -p "$target_dir"
   for dotfile in $(find "$source_dir"); do
     target="${dotfile/$source_dir/$target_dir}"
-    if [ -L "$target" ]; then
-      debug "Delete link: $target"
-      rm "$target"
+    if [ -L "$target" ] || [ "$FORCE" == true ]; then
+      debug "Delete: $target"
+      rm -f "$target"
     fi
-    if [ -f "$dotfile" ]; then
+    if [ ! -e "$dotfile" ]; then
       debug "linking $dotfile -> $target"
       ln -s "$dotfile" "$target"
     elif [ -d "$target" ]; then
