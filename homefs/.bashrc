@@ -116,4 +116,5 @@ if [ -f ~/.localrc ]; then
 fi
 
 PATH=~/.local/bin:$PATH
+PATH=~/.rbenv/shims:$PATH
 export EDITOR=emacs-nox
