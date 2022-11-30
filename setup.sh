@@ -4,6 +4,8 @@ DOTFILES_DIR=$(cd $(dirname "$0") && pwd)
 
 echo "apt-install"
 "$DOTFILES_DIR/script/apt-install.sh"
+echo "npm install"
+"$DOTFILES_DIR/script/npm-install.sh"
 FORCE=${FORCE:-false}
 if [ -n "$CODESPACES" ]; then
   FORCE=true
