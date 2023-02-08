@@ -11,3 +11,4 @@
  ;; If there is more than one, they won't work right.
  )
 (setq backup-directory-alist `(("." . "~/.emacs.d/var/backup")))
+(setq js-indent-level 2)

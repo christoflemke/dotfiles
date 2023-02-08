@@ -2,6 +2,10 @@
 
 set -e
 
+if [ -n "$CODESPACES" ]; then
+  exit 0
+fi
+
 NODE_VERSION=18
 
 export NVM_DIR=$HOME/.nvm
