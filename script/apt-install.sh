@@ -6,11 +6,11 @@ INSTALL_LIST=""
 PACKAGES[curl]=curl
 PACKAGES[jq]=jq
 PACKAGES[gh]=gh
+PACKAGES[emacs]=emacs-nox
 
 if [ -z "$CODESPACES" ]; then
   PACKAGES[rbenv]=rbenv
   PACKAGES[nmap]=nmap
-  PACKAGES[emacs]=emacs-nox
   PACKAGES[pass]=pass
 fi
 
