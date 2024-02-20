@@ -26,7 +26,9 @@ for executable_name in ${!PACKAGES[@]}; do
     [ -z "$(which $executable_name)" ] && INSTALL_LIST="$INSTALL_LIST $package_name"
 done
 
-INSTALL_LIST="$INSTALL_LIST bash-completion"
+if [ ! -f /usr/share/bash-completion/completions/git ]; then
+    INSTALL_LIST="$INSTALL_LIST bash-completion"
+fi
 
 if [ -n "$INSTALL_LIST" ]; then
     sudo apt-get update
