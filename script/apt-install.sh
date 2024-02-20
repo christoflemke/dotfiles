@@ -8,6 +8,7 @@ PACKAGES[jq]=jq
 PACKAGES[gh]=gh
 PACKAGES[emacs]=emacs-nox
 
+
 if [ -z "$CODESPACES" ]; then
   PACKAGES[rbenv]=rbenv
   PACKAGES[nmap]=nmap
@@ -24,6 +25,8 @@ for executable_name in ${!PACKAGES[@]}; do
     package_name="${PACKAGES[$executable_name]}"
     [ -z "$(which $executable_name)" ] && INSTALL_LIST="$INSTALL_LIST $package_name"
 done
+
+INSTALL_LIST="$INSTALL_LIST bash-completion"
 
 if [ -n "$INSTALL_LIST" ]; then
     sudo apt-get update
