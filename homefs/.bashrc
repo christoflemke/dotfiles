@@ -125,4 +125,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && PATH=$PATH:$NVM_DIR/versions/$(nvm current)/bin
 
 alias gitpull='git fetch -p && git pull'
-
+if [ -n "$(which go)" ]; then
+    PATH=$PATH:$(go env GOPATH)/bin
+fi
